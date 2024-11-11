@@ -6,7 +6,6 @@ Key technologies integrated in "Ketaban" include Entity Framework Core for data 
 
 ## Table of Contents
 - [Project Preview](#project-preview)
-- [Installation](#installation)
 - [Features](#features)
 
 
@@ -17,19 +16,6 @@ Take a look at what this project offers:
 ![Project Screenshot](https://i.postimg.cc/0NtNh3Kn/Annotation-2024-11-11-213256.jpg)
 [![Project Main](https://i.postimg.cc/dV6QTX6F/main.jpg)](https://postimg.cc/nXsfy3NS)
 [![Books View](https://i.postimg.cc/gjybbXBp/books.jpg)](https://postimg.cc/zHfcnBr2)
-
-## Installation
-
-Follow these steps to install the project:
-
-```bash
-git clone https://github.com/Alireza-Hasanlou/KETABAN.git
-```
-cd KETABAN
-# (Assuming you're using .NET)
-dotnet restore
-dotnet build
-dotnet run
 
 
 ## Features
