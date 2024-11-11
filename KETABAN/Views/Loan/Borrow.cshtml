@@ -1,0 +1,130 @@
+﻿@model KETABAN.CORE.DTOs.LoanDTO
+
+@if (ViewBag.Loanstatus == "Successfully")
+{
+    <script>
+        Swal.fire({
+            title: "عملیات با موفقیت انجام شد، آیا ادامه می‌دهید؟",
+            icon: "question",
+            iconHtml: "؟",
+            confirmButtonText: "بله",
+            cancelButtonText: "پایان عملیات",
+            showCancelButton: true,
+            showCloseButton: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // اگر کاربر روی بله کلیک کند
+                $('#BookForm').find('input').val('');
+                var studentnumber = $('#studentnumber').val(); // فرض کنید مقدار studentnumber از اینپوت گرفته می‌شود
+                window.location.href = "/Loan/Borrow?studentNumber=" + studentnumber; // هدایت به اکشن borrow به همراه query string
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                // اگر کاربر روی پایان عملیات کلیک کند
+                window.location.href = "/Loan/index"; // هدایت به صفحه index
+            }
+        });
+
+
+    </script>
+}
+
+
+<div class="row">
+
+
+    <div class="col-6">
+
+        <section class="UserFormcontainer">
+            <header>جست و جوی دانشجو</header>
+            <br />
+
+            <form id="studentform" class="form" asp-action="Borrow" method="get">
+                <input type="hidden" asp-for="BookId" value="@Model.BookId" /> 
+                <input asp-for="bookPosition" value="@Model.bookPosition" type="hidden" name="BookPosition">
+                <div class="input-box">
+                    <label>شماره دانشجویی</label>
+                    <input id="studentnumber" asp-for="StudentNumber" value="@Model.StudentNumber" required type="text" name="studentNumber">
+                </div>
+
+                <button style="margin-top:38px;"  type="submit">جست وجو</button>
+
+
+
+
+                <div class="input-box">
+                    <label>نام</label>
+                    <input asp-for="StudnentFirstName" value="@Model.StudnentFirstName" type="text" >
+                </div>
+
+                <div class="input-box">
+                    <label>نام حانوادگی</label>
+                    <input asp-for="StudentLastName" value="@Model.StudentLastName" type="text" >
+                </div>
+
+
+                <span style="color:red;">
+                    @ViewData["StudentsError"]
+           
+                </span>
+            </form>
+        </section>
+
+    </div>
+
+    <div class="col-6">
+
+        <section class="UserFormcontainer">
+            <header>جست و جوی کتاب</header>
+            <br />
+
+             <form id="BookForm" class="form" asp-action="Borrow" method="get">
+                <input asp-for="StudentNumber" value="@Model.StudentNumber" type="hidden" name="studentNumber">
+                <input asp-for="BookId" value="@Model.BookId" type="hidden" />
+                <div class="input-box">
+                    <label>شناسه کتاب</label>
+                    <input asp-for="bookPosition" required value="@Model.bookPosition" type="text" name="BookPosition">
+                </div>
+
+                <button type="submit">جست و جو</button>
+
+                <div class="input-box">
+                    <label>عنوان کتاب</label>
+                    <input asp-for="BookTitle" type="text" value="@Model.BookTitle" class="form-control" />
+                </div>
+
+
+                <div class="input-box">
+                    <label>نام نویسنده</label>
+                    <input asp-for="AuthorName" value="@Model.AuthorName" type="text">
+                </div>
+
+
+
+
+                <span style="color:red;">
+                    @ViewData["BookErrors"]
+               
+                </span>
+
+               
+        
+            </form>
+
+        </section>
+      
+    </div>
+    <button id="BorrowButton" formmethod="post" role="button">امانت</button>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#BorrowButton').click(function (e) {
+            e.preventDefault(); // جلوگیری از رفتار پیش‌فرض دکمه
+            $('#studentform').attr('method', 'post'); //POST تغییر متد فرم به 
+            $('#studentform').submit(); // سابمیت کردن فرم
+        });
+    });
+
+
+</script>
+
+
+<!-- HTML !-->

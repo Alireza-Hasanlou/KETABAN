@@ -1,0 +1,143 @@
+﻿ @model KETABAN.CORE.DTOs.BookOperationDTOs
+@if (ViewBag.AddBookStatus == "Successfully")
+{
+  <script>SuccessAlert("کتاب با موفقیت اضافه شد",'/Book/Index')</script>
+}
+
+<div class="AddBookPagecontainer">
+    <div class="form-wrap">
+        <div class="form-wrap">
+            <form asp-controller="Book" asp-action="Create" method="post" id="survey-form">
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label id="name-label" for="BookPosition">محل قرار گیری کتاب</label>
+                            <input asp-for="BookPosition" type="text" id="name" class="addbookformInput" placeholder="مثال:AB123456">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label id="email-label" for="BookTitle">عنوان کتاب</label>
+                            <input asp-for="BookTitle" type="text" id="email" class="addbookformInput">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label id="name-label" for="Author">نام نویسنده</label>
+                            <input asp-for="Author" type="text" id="name" class="addbookformInput">
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label id="email-label" for="Publisher">ناشر</label>
+                            <input asp-for="Publisher" type="text" id="email" class="addbookformInput">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label id="name-label" for="Edition">شماره ویرایش</label>
+                            <input asp-for="Edition" type="number" id="name" class="addbookformInput">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label id="email-label" for="Pages">تعداد صفحه</label>
+                            <input asp-for="Pages" type="number" id="email" class="addbookformInput">
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label id="name-label" for="year_of_publication">تاریخ انتشار</label>
+                            <input data-jdp data-jdp-only-date asp-for="year_of_publication" type="text" class="addbookformInput" placeholder="تاریخ را وارد کنید" />
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <div class="form-group">
+                            <fieldset class="categoryfieldset">
+
+                                <label> دسته بندی ها</label>
+                                <details class="categorydetails">
+                                    <summary class="Categorysummary">یک یا چند مورد را انتخاب کنید</summary>
+
+                                    <ul class="Categoryul">
+                                        @foreach (var item in Model.categories)
+                                        {
+                                            <li>
+                                                <label><input type="checkbox" name="Categories" value="@item.Id" />@item.Genre</label>
+                                            </li>
+                                        }
+                                      
+                                    </ul>
+                                 
+                                </details>
+                            </fieldset>
+                            <span id="error-message" class="text-error"></span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <label class="" for="studLevelDropdown"> زبان</label>
+                            <select class="addbookdropdown form-control" asp-for="LaguageId" multyselect required >
+                                @foreach (var item in Model.Languages)
+                                {
+                                    <option value="@item.Id">@item.Language</option>
+                                }
+                            </select>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label>خلاصه کتاب</label>
+                            <textarea asp-for="Summary" id="comments" class="addbookformInput" placeholder="تا 500 کاراکتر"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <button id="submitBtn"  class="addbookbutton">افزودن کتاب</button>
+                    </div>
+                </div>
+                
+                <span class="text-error">
+                    @ViewData["Errors"]
+                    @Html.ValidationSummary()
+                </span>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+<script>
+
+    $('#survey-form').on('submit', function (e) {
+        // تعداد چک‌باکس‌های انتخاب‌شده را می‌گیرد
+        if ($('input[name="Categories"]:checked').length === 0) {
+            e.preventDefault(); // جلوگیری از ارسال فرم
+            $('#error-message').text('لطفاً حداقل یک دسته بندی برای کتاب انتخاب کنید.'); // نمایش هشدار
+        }
+    });
+
+    PersianDatapicker();
+</script>
+@* <script>PersianDatapicker()</script> *@

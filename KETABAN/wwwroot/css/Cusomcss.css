@@ -1,0 +1,944 @@
+﻿
+/*fonts*/
+@font-face {
+    font-family: "Vazir";
+    src: url(../fonts/Vazir.ttf);
+}
+
+@font-face {
+    font-family: digikala;
+    src: url('../fonts/digikala.eot');
+    src: url('../fonts/digikala.eot?#iefix') format('embedded-opentype'), url('../fonts/digikala.woff2') format('woff2'), url('../fonts/digikala.woff') format('woff'), url('../fonts/digikala.ttf') format('truetype')
+}
+
+
+/*Add form css*/
+.UserFormcontainer {
+    margin: 130px auto 0;
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+    .UserFormcontainer header {
+        font-size: 1.2rem;
+        color: #000;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    .UserFormcontainer .form {
+        margin-top: 15px;
+    }
+
+.form .input-box {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.input-box label {
+    color: #000;
+}
+
+.form :where(.input-box input, .select-box) {
+    position: relative;
+    height: 35px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #808080;
+    margin-top: 5px;
+    border: 1px solid #0d265f;
+    border-radius: 6px;
+    padding: 0 15px;
+    background: #d5d5d5;
+}
+
+.input-box input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form .column {
+    display: flex;
+    column-gap: 15px;
+}
+
+.form .gender-box {
+    margin-top: 10px;
+}
+
+.form :where(.gender-option, .gender) {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap: wrap;
+}
+
+.form .gender {
+    column-gap: 5px;
+}
+
+.gender input {
+    accent-color: #0d265f;
+}
+
+.form :where(.gender input, .gender label) {
+    cursor: pointer;
+}
+
+label {
+    color: #000;
+}
+
+.address :where(input, .select-box) {
+    margin-top: 10px;
+}
+
+.select-box select {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: #808080;
+    font-size: 1rem;
+    background: #FCEDDA;
+}
+
+.form button {
+    height: 40px;
+    width: 100%;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #0d265f;
+}
+
+    .form button:hover {
+        background: #1e3365;
+    }
+/*forgotpassword css*/
+
+/* From Uiverse.io by gharsh11032000 */
+.Forgot_password_form-UserFormcontainer {
+    max-width: 400px;
+    background-color: #fff;
+    padding: 32px 24px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #212121;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+}
+
+    .Forgot_password_form-UserFormcontainer button:active {
+        *scale: 0.95;
+    }
+
+    .Forgot_password_form-UserFormcontainer .logo-UserFormcontainer {
+        text-align: center;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .Forgot_password_form-UserFormcontainer .form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Forgot_password_form-UserFormcontainer .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+        .Forgot_password_form-UserFormcontainer .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .Forgot_password_form-UserFormcontainer .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: inherit;
+            border: 1px solid #ccc;
+        }
+
+            .Forgot_password_form-UserFormcontainer .form-group input::placeholder {
+                opacity: 0.5;
+            }
+
+            .Forgot_password_form-UserFormcontainer .form-group input:focus {
+                outline: none;
+                border-color: #1778f2;
+            }
+
+    .Forgot_password_form-UserFormcontainer .form-submit-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: inherit;
+        color: #fff;
+        background-color: #212121;
+        border: none;
+        width: 100%;
+        padding: 12px 16px;
+        font-size: inherit;
+        gap: 8px;
+        margin: 12px 0;
+        cursor: pointer;
+        border-radius: 6px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+    }
+
+        .Forgot_password_form-UserFormcontainer .form-submit-btn:hover {
+            background-color: #313131;
+        }
+
+    .Forgot_password_form-UserFormcontainer .link {
+        color: #1778f2;
+        text-decoration: none;
+    }
+
+    .Forgot_password_form-UserFormcontainer .signup-link {
+        align-self: center;
+        font-weight: 500;
+    }
+
+        .Forgot_password_form-UserFormcontainer .signup-link .link {
+            font-weight: 400;
+        }
+
+    .Forgot_password_form-UserFormcontainer .link:hover {
+        text-decoration: underline;
+    }
+
+/*pagination*/
+
+.center {
+    text-align: center;
+    direction: rtl;
+}
+
+.pagination {
+    display: inline-block;
+}
+
+    .pagination a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+        border: 1px solid #ddd;
+        margin: 0 4px;
+    }
+
+        .pagination a.active {
+            background-color: #0d265f;
+            color: white;
+            border: 1px solid;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+
+
+/*student level input*/
+.studLevelDropdown {
+    all: initial;
+    padding-top: 6px;
+    text-align: center;
+    font-size: 50px;
+    position: relative;
+    height: 35px;
+    width: 60%;
+    margin-right: 93px;
+    outline: none;
+    font-size: 1rem;
+    color: black;
+    margin-top: 5px;
+    border: 1px solid #0d265f;
+    border-radius: 6px;
+    padding: 0 15px;
+    background: #d5d5d5;
+    border-radius: 8px;
+}
+
+.gender-box {
+    width: 40%;
+}
+
+.studlevellabal {
+    margin-right: 93px;
+}
+
+
+/****************************/
+
+.categoryfieldset {
+    border: none;
+}
+
+    .categoryfieldset > label {
+        display: inline-block;
+        width: 100px;
+        font-weight: bold;
+        vertical-align: top;
+        font-size: 1rem;
+        line-height: 28px;
+    }
+
+        .categoryfieldset > label::after {
+            content: ":";
+        }
+
+select,
+.categorydetails {
+    display: inline-block;
+    width: 250px;
+    background-color: white;
+    cursor: pointer;
+}
+
+select,
+.Categorysummary {
+    border: 1px solid var(--lt-gray);
+    border-collapse: collapse;
+    border-radius: 4px;
+    padding: 4px;
+    width: 250px;
+    background-color: white;
+    cursor: pointer;
+}
+
+.categorydetails[open] > summary::marker {
+    color: var(--blue);
+}
+
+select:focus,
+Categorysummary:focus,
+Categorysummary:active {
+    box-shadow: 0 0 5px 1px var(--blue);
+}
+
+.Categoryul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    margin-top: 2px;
+    border: 1px solid var(--dk-gray);
+    box-shadow: 0 0 5px 1px var(--lt-gray);
+}
+
+Categoryul > li {
+    margin: 0px;
+    padding: 0px;
+}
+
+.Categoryul > li > label {
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+}
+
+    .Categoryul > li > label:hover,
+    .Categoryul > li > label:has(input:checked) {
+        background-color: var(--dk-gray);
+        color: #0d265f;
+    }
+/***********************/
+
+.HomepageHeader {
+    margin-top: 50px;
+    margin: auto;
+    font-size: 4rem;
+    text-align: center;
+    color: #2b4a83; /* رنگ عنوان */
+    font-family: IranNastaliq;
+}
+
+/* جمله درباره کتاب */
+.homepagetext {
+    font-size: 1.2rem;
+    color: #333; /* رنگ متن */
+    margin: 10px 0 30px; /* فاصله‌ها */
+    text-align: center;
+}
+
+/* کارت‌های چارت */
+#charts {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    padding: 20px;
+}
+
+.chart-container {
+    width: 300px;
+    height: 350px;
+    background-color: white; /* پس‌زمینه چارت */
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*addbookform*/
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,900&display=swap');
+
+
+
+.AddBookPagecontainer {
+    max-width: 1230px;
+    width: 100%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+/*h1 {
+    font-weight: 700;
+    font-size: 45px;
+    font-family: 'Roboto', sans-serif;
+}
+*/
+/*.header {
+    margin-bottom: 80px;
+}
+*/
+#description {
+    font-size: 24px;
+}
+
+.form-wrap {
+    background: rgba(255,255,255,1);
+    width: 100%;
+    max-width: 850px;
+    padding: 50px;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 10px;
+    border-radius: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+}
+
+    .form-wrap:before {
+        content: "";
+        width: 90%;
+        height: calc(100% + 60px);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        position: absolute;
+        top: -30px;
+        background: #0d265f;
+        z-index: -1;
+        opacity: 0.8;
+        border-radius: 10px;
+        border-radius: 10px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+        box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+    }
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+    .form-group > label {
+        display: block;
+        font-size: 18px;
+        color: #000;
+    }
+
+.custom-control-label {
+    color: #000;
+    font-size: 16px;
+}
+
+.addbookformInput {
+    position: relative;
+    height: 35px;
+    width: 90%;
+    outline: none;
+    font-size: 1rem;
+    color: #808080;
+    margin-top: 5px;
+    border: 1px solid #0d265f;
+    border-radius: 6px;
+    padding: 0 15px;
+    background: #d5d5d5;
+}
+
+    .addbookformInput:focus {
+        border-color: #00bcd9;
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, .1);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, .1);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, .1);
+    }
+
+textarea.addbookformInput {
+    height: 160px;
+    padding-top: 15px;
+    resize: none;
+}
+
+.addbookbutton {
+    height: 40px;
+    width: 250%;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #0d265f;
+}
+
+.addbookdropdown {
+    all: initial;
+    padding-top: 6px;
+    text-align: center;
+    font-size: 50px;
+    position: relative;
+    height: 35px;
+    width: 80%;
+    margin-right: 0;
+    outline: none;
+    font-size: 1rem;
+    color: black;
+    margin-top: 5px;
+    border: 1px solid #0d265f;
+    border-radius: 6px;
+    padding: 0 15px;
+    background: #d5d5d5;
+}
+/*NotFoundPage*/
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato');
+
+.notfoundPagebody {
+    background: #d3deea;
+    width: 100%;
+    height: 100vh;
+}
+
+.NFPagetop {
+    margin-top: 0px;
+}
+
+.NFPagecontainer {
+    margin: 0 auto;
+    position: relative;
+    width: 250px;
+    height: 250px;
+    margin-top: -40px;
+}
+
+.ghost {
+    width: 50%;
+    height: 53%;
+    left: 25%;
+    top: 10%;
+    position: absolute;
+    border-radius: 50% 50% 0 0;
+    background: #ededed;
+    border: 1px solid #bfc0c0;
+    border-bottom: none;
+    animation: float 2s ease-out infinite;
+}
+
+.ghost-copy {
+    width: 50%;
+    height: 53%;
+    left: 25%;
+    top: 10%;
+    position: absolute;
+    border-radius: 50% 50% 0 0;
+    background: #ededed;
+    border: 1px solid #bfc0c0;
+    border-bottom: none;
+    animation: float 2s ease-out infinite;
+    z-index: 0;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    top: 20%;
+}
+
+.eye, .eye-right {
+    position: absolute;
+    background: #585959;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    top: 40%;
+}
+
+.eye {
+    left: 25%;
+}
+
+.eye-right {
+    right: 25%;
+}
+
+.mouth {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    width: 10px;
+    height: 10px;
+    border: 3px solid;
+    border-radius: 50%;
+    border-color: transparent #585959 #585959 transparent;
+    transform: rotate(45deg);
+}
+
+.one, .two, .three, .four {
+    position: absolute;
+    background: #ededed;
+    top: 85%;
+    width: 25%;
+    height: 23%;
+    border: 1px solid #bfc0c0;
+    z-index: 0;
+}
+
+.one {
+    border-radius: 0 0 100% 30%;
+    left: -1px;
+}
+
+.two {
+    left: 23%;
+    border-radius: 0 0 50% 50%;
+}
+
+.three {
+    left: 50%;
+    border-radius: 0 0 50% 50%;
+}
+
+.four {
+    left: 74.5%;
+    border-radius: 0 0 30% 100%;
+}
+
+.shadow {
+    position: absolute;
+    width: 30%;
+    height: 7%;
+    background: #bfc0c0;
+    left: 35%;
+    top: 80%;
+    border-radius: 50%;
+    animation: scale 2s infinite;
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(15px);
+    }
+}
+
+/*text styling*/
+.NFPagetop > h1 {
+    font-family: 'Abril Fatface', serif;
+    color: #ededed;
+    text-align: center;
+    font-size: 9em;
+    margin: 0;
+    text-shadow: -1px 0 #bfc0c0, 0 1px #bfc0c0, 1px 0 #bfc0c0, 0 -1px #bfc0c0;
+}
+
+.NFPagetop > h3 {
+    font-family: 'Lato', sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #bfc0c0;
+    margin-top: -20px;
+    font-weight: 900;
+}
+
+
+/*forgotpasswordPage*/
+
+.ForgotPasswordbody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+    background: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    width: 100%;
+    height: 98.37vh;
+}
+
+.Forgot_password_form-container {
+    width: 350px;
+    background-color: #fff;
+    padding: 32px 24px;
+    font-size: 14px;
+    font-family: inherit;
+    color: #212121;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+}
+
+    .Forgot_password_form-container button:active {
+        *scale: 0.95;
+    }
+
+    .Forgot_password_form-container .logo-container {
+        text-align: center;
+        font-weight: 600;
+        font-size: 18px;
+    }
+
+    .Forgot_password_form-container .form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Forgot_password_form-container .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+        .Forgot_password_form-container .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .Forgot_password_form-container .form-group input {
+            width: 100%;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-family: inherit;
+            border: 1px solid #ccc;
+        }
+
+            .Forgot_password_form-container .form-group input::placeholder {
+                opacity: 0.5;
+            }
+
+            .Forgot_password_form-container .form-group input:focus {
+                outline: none;
+                border-color: #1778f2;
+            }
+
+    .Forgot_password_form-container .form-submit-btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: inherit;
+        color: #fff;
+        background-color: #212121;
+        border: none;
+        width: 100%;
+        padding: 12px 16px;
+        font-size: inherit;
+        gap: 8px;
+        margin: 12px 0;
+        cursor: pointer;
+        border-radius: 6px;
+        box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.084), 0px 2px 3px rgba(0, 0, 0, 0.168);
+    }
+
+        .Forgot_password_form-container .form-submit-btn:hover {
+            background-color: #313131;
+        }
+
+    .Forgot_password_form-container .link {
+        color: #1778f2;
+        text-decoration: none;
+    }
+
+    .Forgot_password_form-container .signup-link {
+        align-self: center;
+        font-weight: 500;
+    }
+
+        .Forgot_password_form-container .signup-link .link {
+            font-weight: 400;
+        }
+
+    .Forgot_password_form-container .link:hover {
+        text-decoration: underline;
+    }
+
+
+/*accessDeniedpage*/
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Nunito:200,300,400,600,700,800,900&display=swap");
+/*==SCSS coded by rajeshdas.com==*/
+/*font import from google fonts*/
+/*font import from google fonts*/
+.accessDeniedPagebody {
+    font-family: "Nunito", sans-serif;
+    transition: all 0.5s ease;
+}
+
+    .accessDeniedPagebody > h1, h2, h3, h4, h5, h6 {
+        font-family: "Montserrat", sans-serif;
+    }
+
+.page-wrap {
+    padding: 30px 15px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+    .page-wrap .page-not-found {
+        width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+    }
+
+        .page-wrap .page-not-found .img-key {
+            margin-bottom: 0px;
+        }
+
+        .page-wrap .page-not-found h1.text-xl {
+            color: #000;
+            text-transform: uppercase;
+            line-height: 50px;
+            font-size: 160px;
+            font-weight: 800;
+            letter-spacing: -28px;
+            text-shadow: -6px 4px 0px #fff;
+            margin-left: -20px;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+            .page-wrap .page-not-found h1.text-xl span {
+                transition: all 1s ease;
+                display: inline-block;
+                animation: pulse 5s infinite;
+            }
+
+        .page-wrap .page-not-found h4.text-md, .page-wrap .page-not-found h4.text-sm {
+            letter-spacing: 0.38px;
+            font-weight: 300;
+            line-height: 20px;
+            font-size: 14px;
+            text-transform: none;
+            color: rgba(0, 0, 0, 0.5);
+            margin-bottom: 0px;
+            width: 100%;
+        }
+
+            .page-wrap .page-not-found h4.text-md a, .page-wrap .page-not-found h4.text-sm a {
+                color: #1177bd;
+                text-decoration: underline;
+                font-weight: 700;
+            }
+
+                .page-wrap .page-not-found h4.text-md a:hover, .page-wrap .page-not-found h4.text-sm a:hover, .page-wrap .page-not-found h4.text-md a:focus, .page-wrap .page-not-found h4.text-sm a:focus {
+                    text-decoration: none;
+                }
+
+        .page-wrap .page-not-found h4.text-md {
+            font-size: 50px;
+            font-weigth: 700;
+            color: #1177bd;
+            text-transform: none;
+        }
+
+        .page-wrap .page-not-found h4.text-sm-btm {
+            top: auto;
+            bottom: 40px;
+        }
+
+@keyframes pulse {
+    0% {
+        color: #000;
+    }
+
+    50% {
+        color: rgba(240, 48, 48, 1);
+    }
+
+    100% {
+        color: #000;
+    }
+}
+
+@media (max-width: 768px) {
+    .page-wrap .page-not-found h1.text-xl {
+        font-size: 120px;
+        letter-spacing: -20px;
+        margin-bottom: 30px;
+    }
+
+    .page-wrap .page-not-found h4.text-sm {
+        top: 10px;
+    }
+
+    .page-wrap .page-not-found h4.text-sm-btm {
+        bottom: -60px;
+    }
+
+    .page-wrap .page-not-found h4.text-md {
+        font-size: 30px;
+    }
+}
+#BorrowButton {
+    height: 40px;
+    width: 20%;
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 68px;
+    margin-right: 40%;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #0d265f;
+}

@@ -1,0 +1,84 @@
+﻿@model KETABAN.CORE.DTOs.AddLibrarianDTO
+
+@if (ViewBag.CreateLibrarianStatus == "Successfully")
+{
+    <script>SuccessAlert("کتابدار جدید با موفقیت اضافه شد", '/librarian/Index')</script>
+}
+
+<section class="UserFormcontainer">
+    <header>ثبت نام کتابدار جدید</header>
+  <br />
+    <span class="text-info">* رمز عبور و نام کاربری کتابدار در ابتدا برابر کد ملی میباشد</span>
+   
+    <form class="form" asp-action="Create">
+        <div class="column">
+
+            <div class="input-box">
+                <label>نام</label>
+                <input asp-for="FirstName" type="text">
+                <span class="text-error" asp-validation-for="FirstName"></span>
+            </div>
+
+            <div class="input-box">
+                <label>نام خانوادگی</label>
+                <input asp-for="LastName" type="text" class="form-control" />
+                <span class="text-error" asp-validation-for="LastName"></span>
+            </div>
+
+        </div>
+
+        <div class="input-box">
+            <label>کدملی</label>
+            <input asp-for="NationalCode"  type="text">
+            <span class="text-error" asp-validation-for="NationalCode"></span>
+        </div>
+
+        <div class="input-box">
+            <label>ایمیل</label>
+            <input asp-for="Email" type="email">
+            <span class="text-error" asp-validation-for="Email"></span>
+        </div>
+      
+        <div class="column">
+            
+            <div class="input-box">
+                <label>شماره تماس</label>
+                <input asp-for="PhoneNumber" type="tel">
+                <span class="text-error" asp-validation-for="PhoneNumber"></span>
+            </div>
+
+            <div class="input-box">
+                <label>تاریخ تولد</label>
+
+                <input data-jdp data-jdp-only-date asp-for="DateOfBirth" type="text" class="form-control" placeholder="تاریخ را وارد کنید" />
+            </div>      
+        </div>
+        <div class="gender-box ">
+
+   
+         
+                <label>جنسیت</label>
+                <div class="gender-option">
+                    <div class="gender">
+                        <input checked="" name="gender" id="check-male" type="radio" value="Male">
+                        <label for="check-male">مرد</label>
+                    </div>
+                    <div class="gender">
+                        <input name="gender" id="check-female" type="radio" value="Female">
+                        <label for="check-female">زن</label>
+                    </div>
+
+                </div>
+
+        </div>
+
+        <button  type="submit">ثبت نام</button>
+
+       <span style="color:red;" >
+           @ViewData["Errors"]
+           @Html.ValidationSummary()
+       </span>
+    </form>
+</section>
+
+<script>PersianDatapicker()</script>

@@ -1,0 +1,53 @@
+﻿@model KETABAN.CORE.DTOs.LoginDTO
+@{
+    Layout = null;
+}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script type="text/javascript" src="~/js/Customjs.js"></script>
+<link rel="stylesheet" href="~/css/LoginPagecss.css">
+
+<div dir="rtl" class="page-content">
+    @if (ViewBag.LoginStatus == "Successfully")
+    {
+      
+        <script>LoginAlert();</script>
+
+
+    }
+
+    <div class="form-v6-content">
+        <div class="form-left">
+            <img src="/img/loginBackground.jpg" alt="form">
+        </div>
+        <form asp-action="Login" method="post" class="form-right">
+            <h1 style="font-size:50px" class="clgname ">کتابان</h1>
+            <h2 style="color:black; font-size:30px;">ورود </h2>
+
+            <div class="input-container">
+
+                <input asp-for="UserName" placeholder="نام کاربری" type="text" autocomplete="off" class="input form-control">
+                <div class="underline"></div>
+            </div>
+            <div class="input-container">
+
+                <input asp-for="Password" placeholder="رمزعبور" type="password" class="input form-control">
+                <div class="underline"></div>
+            </div>
+
+            <a class="forgotpasswordtext" asp-controller="Account" asp-action="ForgotPassword">*رمز عبور خود را فراموش کردم!</a>
+
+
+
+            <div class="form-row-last">
+                <input type="submit" class="loginbutton" value="ورود">
+            </div>
+
+
+
+
+            <span style="color:red; margin-top:10px;">
+                @ViewData["Errors"]
+            </span>
+        </form>
+    </div>
+</div>

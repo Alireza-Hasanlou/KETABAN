@@ -1,0 +1,63 @@
+﻿@{
+    ViewData["Title"] = "Languages";
+}
+@using KETEBAN.DATA.Entities.BookEN
+
+
+@if (TempData["CreateStatus"] is "Successfully")
+{
+
+    <script>SuccessAlert("زبان جدید با موفقیت اضافه شد", '/Settings/Languages')</script>
+}
+
+@if (TempData["DeleteStatus"] is "Successfully")
+{
+    <script>SuccessAlert("زبان  با موفقیت حذف شد", '/Settings/Languages')</script>
+
+}
+<div class="main-content padding-0 categories">
+
+    <div class="row no-gutters  ">
+        <div class="col-8 margin-left-10 margin-bottom-15 border-radius-3">
+            <p class="box__title">زیان ها</p>
+            <div class="table__box">
+                <table class="table">
+                    <thead role="rowgroup">
+                        <tr role="row" class="title-row">
+                            <th>شناسه</th>
+                            <th>نام زبان</th>
+                            <th>عملیات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ViewData["Languages"] as List<BookLanguage>)
+                        {
+                            <tr role="row" class="">
+                                <td><a href="">@item.Id</a></td>
+                                <td><a href="">@item.Language</a></td>
+                                <td>
+                                    <a asp-controller="Settings" asp-action="DeleteLanguage" asp-route-languageId="@item.Id" class="item-delete mlg-15" title="حذف"></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+        <div class="col-4 bg-white">
+            <p class="box__title">ایجاد زبان جدید</p>
+            <form asp-controller="Settings" asp-action="CreateLanguage" method="post" class="padding-30">
+                <input name="language" type="text" placeholder="نام زیان" class="text">
+                <button type="submit" class="btn btn-netcopy_net">اضافه کردن</button>
+
+
+            </form>
+
+            <span style="color:red;">
+                @TempData["Errors"]
+            </span>
+        </div>
+    </div>
+</div>

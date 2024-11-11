@@ -1,0 +1,19 @@
+﻿@model KETABAN.CORE.DTOs.ChartdataDto
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1 class="HomepageHeader">کتابان</h1>
+<p class="homepagetext">خوشبخت، کسی است که به یکی از این دو چیز دسترسی دارد، یا کتاب های خوب یا دوستانی که اهل کتاب باشند.</p>
+
+<div id="charts">
+    <div id="chart1" class="chart-container"></div>
+    <div id="chart2" class="chart-container"></div>
+    <div id="chart3" class="chart-container"></div>
+</div>
+
+<script>
+    // ایجاد نمودارها با استفاده از تابع
+    createRadialBarChart("#chart1", @Model.StudentCount, 10, 'تعداد دانشجویان');  // نمودار دانشجویان
+    createRadialBarChart("#chart2", @Model.BooksCount, 10, 'تعداد کتاب ها');  // نمودار تعداد کتاب‌ها
+    createRadialBarChart("#chart3", @Model.LoanCount, 10, ' کتاب های در امانت');  // نمودار کتاب‌های به امانت رفته
+</script>

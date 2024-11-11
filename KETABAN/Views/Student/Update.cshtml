@@ -1,0 +1,95 @@
+﻿@model KETABAN.CORE.DTOs.StudentOperationDTOs
+
+
+@if (ViewBag.CreateStudentStatus == "SuccessFully")
+{
+    <script>SuccessAlert("تغییرات با موفقیت اعمال شد", '/Student/Index')</script>
+}
+
+
+
+<section class="UserFormcontainer">
+    <header>ویرایش دانشجو</header>
+    <br />
+
+    <form class="form" asp-action="Update">
+        <input type="hidden" asp-for="studentNum" />
+        <div class="column">
+
+            <div class="input-box">
+                <label>نام</label>
+                <input asp-for="FirstName" type="text">
+                <span class="text-error" asp-validation-for="FirstName"></span>
+            </div>
+
+            <div class="input-box">
+                <label>نام خانوادگی</label>
+                <input asp-for="LastName" type="text" class="form-control" />
+                <span class="text-error" asp-validation-for="LastName"></span>
+            </div>
+
+        </div>
+
+        <div class="input-box">
+            <label>ایمیل</label>
+            <input asp-for="Email" type="email">
+            <span class="text-error" asp-validation-for="Email"></span>
+        </div>
+
+        <div class="column">
+
+            <div class="input-box">
+                <label>شماره تماس</label>
+                <input asp-for="PhoneNumber" type="tel">
+                <span class="text-error" asp-validation-for="PhoneNumber"></span>
+            </div>
+
+            <div class="input-box">
+                <label>تاریخ تولد</label>
+
+                <input asp-for="DateOfBirth" type="date" class="form-control" placeholder="تاریخ را وارد کنید" />
+            </div>
+
+        </div>
+
+        <div class="column">
+            <div class="gender-box">
+                <label>جنسیت</label>
+                <div class="gender-option">
+                    <div class="gender">
+                        <input @((Model.Gender == "Male") ? "checked" : "") name="gender" id="check-male" type="radio" value="Male">
+                        <label for="check-male">مرد</label>
+                    </div>
+                    <div class="gender">
+                        <input @((Model.Gender == "Female") ? "checked" : "") name="gender" id="check-female" type="radio" value="Female">
+                        <label for="check-female">زن</label>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="input-box">
+
+                <label class="studlevellabal" for="studLevelDropdown"> سطح کاربر</label>
+                <select class="studLevelDropdown" asp-for="StudentLevelId" asp-items="@(ViewData["Studentslevels"] as SelectList)"> </select>
+
+            </div>
+
+
+        </div>
+
+
+
+
+        <button type="submit">ویرایش</button>
+
+        <span style="color:red;">
+            @ViewData["Errors"]
+            @Html.ValidationSummary()
+        </span>
+
+
+    </form>
+</section>
+

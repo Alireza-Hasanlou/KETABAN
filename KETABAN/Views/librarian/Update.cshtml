@@ -1,0 +1,63 @@
+﻿@model KETABAN.CORE.DTOs.LibrarianDto
+
+@if (ViewBag.UpdateLibrarianStatus == "Successfully")
+{
+    <script>SuccessAlert("تغییرات با موفقیت اعمال شد", '/librarian/Index')</script>
+}
+
+<section class="UserFormcontainer">
+    <header>ویرایش کتابدار </header>
+
+
+    <form class="form" asp-action="Update">
+        <input type="hidden" asp-for="Id" />
+        <div class="column">
+
+            <div class="input-box">
+                <label>نام</label>
+                <input asp-for="FirstName" type="tel">
+            </div>
+            <div class="input-box">
+                <label>نام خانوادگی</label>
+
+                <input asp-for="LastName" type="text" class="form-control" />
+            </div>
+        </div>
+        <div class="input-box">
+            <label>نام کاربری</label>
+            <input asp-for="UserName" type="text">
+        </div>
+
+        <div class="input-box">
+            <label>کدملی</label>
+            <input asp-for="NationalCode" type="text">
+        </div>
+        <div class="input-box">
+            <label>ایمیل</label>
+            <input asp-for="Email" type="text">
+        </div>
+        
+        <div class="column">
+
+            <div class="input-box">
+                <label>شماره تماس</label>
+                <input asp-for="PhoneNumber" type="tel">
+            </div>
+            <div class="input-box">
+                <label>تاریخ تولد</label>
+
+                <input data-jdp data-jdp-only-date asp-for="DateOfBirth" type="text" class="form-control" placeholder="تاریخ را وارد کنید" />
+            </div>
+        </div>
+     
+
+        <button type="submit">ویرایش</button>
+       
+        <span style="color:red;">
+            @Html.ValidationSummary()
+            @ViewData["Errors"]
+        </span>
+    </form>
+</section>
+
+<script>PersianDatapicker()</script>

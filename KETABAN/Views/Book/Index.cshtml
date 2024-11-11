@@ -1,0 +1,169 @@
+﻿@model KETABAN.CORE.DTOs.BookListDto
+
+
+
+
+<div class="main-content font-size-13">
+    <div class="tab__box">
+        <div class="tab__items">
+            <a class="tab__item is-active" href="users.html">همه کتاب ها</a>
+
+            <a class="tab__item" asp-controller="Book" asp-action="Create">افزودن کتاب جدید</a>
+        </div>
+    </div>
+    <div class="d-flex flex-space-between item-center flex-wrap padding-30 border-radius-3 bg-white">
+        <div class="t-header-search">
+            <form asp-action="Index" asp-controller="Book" method="get">
+                <div class="t-header-searchbox font-size-13">
+                    <input type="text" class="text searchinputbox font-size-13" placeholder="جستجوی کتاب">
+                    <div class="t-header-search-content ">
+                        <input name="BookTitle" type="text" class="text margin-bottom-20" placeholder="عنوان کتاب">
+                        <input name="Author" type="text" class="text margin-bottom-20" placeholder=" نویسنده">
+                        <input name="Publisher" type="text" class="text" placeholder="ناشر">
+
+                        <button type="submit" class="btn btn-netcopy_net">جست وجو</button>
+
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+    <div class="table__box">
+        <table class="table">
+            <thead role="rowgroup">
+                <tr role="row" class="title-row">
+
+                    <th>عنوان کتاب</th>
+                    <th>محل قرارگیری کتاب</th>
+                    <th>نویسنده</th>
+                    <th>ناشر</th>
+                    <th>ویرایش</th>
+                    <th>وضعیت</th>
+                    <th>عملیات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Books)
+                {
+                    <tr role="row" class="">
+
+                        <td>@item.Title</td>
+                        <td>@item.BookPosition</td>
+                        <td>@item.Author</td>
+                        <td>@item.Publisher</td>
+                        <td>@item.Edition</td>
+                        @if (item.IsAvailable==false)
+                        {
+                             <td class="text-error">در دسترس نیست</td>
+                        }
+                        else
+                        {
+                            <td class="text-success">در دسترس</td>
+                        }
+                       
+                        <td>
+                            <a onclick="confirmDelete('@item.Bookid','@item.Title')" class="item-delete mlg-15" title="حذف"></a>
+                            <a href="/Loan/Borrow?BookPosition=@item.BookPosition" class="item-loan mlg-15" title="امانت دادن کتاب"></a>
+                            <a asp-controller="Book" asp-action="Update" asp-route-BookId="@item.Bookid" class="item-edit " title="جزئیات و ویرایش"></a>
+                        </td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <div class="center">
+        <div class="pagination">
+
+            <a onclick="Nextpage(@Model.CureentPage)">&laquo;</a>
+            @for (int i = 1; i < Model.PageCount; i++)
+            {
+                <a name="CurrentPage" href="/Book?CurrentPage=@i" class="@(Model.CureentPage == i ? "active" : "")">@i</a>
+
+            }
+            <a onclick="previewpage(@Model.CureentPage)">&raquo;</a>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+
+
+    function confirmDelete(Bookid, Title) {
+        Swal.fire({
+            title: "آیا از حذف" + " " + Title + " " + "مطمئن هستید؟",
+            text: "",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            cancelButtonText: "لغو",
+            confirmButtonText: "حذف"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // ارسال درخواست حذف به سرور با استفاده از AJAX
+                $.ajax({
+                    url: "https://localhost:7213/Book/Delete", // آدرس متد حذف در کنترلر
+                    type: 'POST',
+                    data: { Bookid: Bookid }, 
+                    success: function (response) {
+                        if (response.success) {
+                            Swal.fire({
+                                position: "Center",
+                                icon: "success",
+                                title: "کتاب با موفقیت حذف شد",
+                                showConfirmButton: false,
+                                timer: 3000
+
+                            }).then(() => {
+                                location.reload(); // بروزرسانی صفحه پس از حذف
+                            });
+                        } else {
+                            Swal.fire({
+                                title: "خطا",
+                                text: response.message,
+                                icon: "error",
+                            });
+                        }
+                    },
+                    error: function () {
+                        Swal.fire({
+                            title: "خطا",
+                            text: "مشکلی در حذف کتاب به وجود آمد",
+                            icon: "error",
+                        });
+                    }
+                });
+            }
+        });
+    }
+
+
+    function Nextpage(currentpage) {
+
+        if (currentpage < @Model.PageCount-1) {
+            currentpage = currentpage + 1;
+
+            window.location.href = "/Student?CurrentPage=" + currentpage;
+        }
+
+
+    }
+    function previewpage(currentpage) {
+
+        if (currentpage > 1) {
+            currentpage = currentpage - 1;
+
+            window.location.href = "/Student?CurrentPage=" + currentpage;
+        }
+
+
+    }
+
+
+</script>

@@ -1,0 +1,59 @@
+﻿@model KETABAN.CORE.DTOs.EditProfileDto
+@{
+    ViewData["Title"] = "EditProfile";
+}
+
+<div class="main-content  ">
+    <div class="user-info bg-white padding-30 font-size-13">
+        <form asp-action="EditProfile" method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Id" />
+            <div class="profile__info border cursor-pointer text-center">
+                <div class="avatar__img">
+                    <img src="/img/Avatars/@Model.AvatarName" class="avatar___img">
+                    <input type="file" asp-for="Avatar" accept="image/*" class="hidden avatar-img__input">
+                    <div class="v-dialog__container" style="display: block;"></div>
+                    <div class="box__camera default__avatar"></div>
+                </div>
+               
+            </div>
+            <input class="text" asp-for="UserName" placeholder="نام کاربری">
+            <input class="text  " asp-for="FirstName" placeholder="نام">
+            <input class="text  " asp-for="LastName" placeholder=" نام حانوادگی">
+            <input class="text  " asp-for="Email" placeholder="ایمیل">
+            <input class="text  " asp-for="PhoneNumber" placeholder="شماره موبایل">
+            <input class="text  " asp-for="NationalCode" readonly placeholder="شماره ملی">
+            <input class="text  " asp-for="DateOfBirth" readonly placeholder="تاریخ تولد">
+
+            <br>
+            <span class="text-error">*پس از ذخیره تغییرات  به صفحه ورود هدایت میشوید و باید مجددا وارد شوید</span>
+            <br>
+            <br>
+            
+            <button type="submit" class="btn btn-netcopy_net">ذخیره تغییرات</button>
+
+            <br />
+            <br />
+            <p class="editprofilechangepasswordtext">برای تغییر کلمه عبور <a href="/ForgotPassword">کلیک</a>کنید</p>
+        </form>
+    </div>
+
+</div>
+<script>
+
+    $('.avatar-img__input').on('change', function () {
+        var input = $(this);
+        if (input[0] && input[0].files && input[0].files[0]) {
+            if (!input[0].files[0].type.includes("image")) {
+                // $('.avatar--img').attr('src', '../img/pr3o.png');
+                return false;
+            }
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $('.avatar___img')
+                    .attr('src', e.target.result);
+            };
+
+            reader.readAsDataURL(input[0].files[0]);
+        }
+    });
+</script>

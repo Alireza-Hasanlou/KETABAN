@@ -1,0 +1,193 @@
+﻿
+
+
+
+    body {
+        margin: 0;
+        font-family: Nazanin;
+        direction:rtl;
+        text-decoration:none;
+        background-color:lightgray;
+     
+    }
+
+.page-content {
+    width: 100%;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    *-o-justify-content: center;
+    *-ms-justify-content: center;
+    *-moz-justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    *-o-align-items: center;
+    *-ms-align-items: center;
+    *-moz-align-items: center;
+    -webkit-align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+    .form-v6-content {
+        
+        background: #fff;
+        width: 968px;
+        border-radius: 8px;
+        *-o-border-radius: 8px;
+        *-ms-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        margin: 180px 0;
+        font-family: 'Nunito', sans-serif;
+        color: #fff;
+        font-weight: 700;
+        position: relative;
+        display: flex;
+        display: -webkit-flex;
+    }
+.form-right {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction:column;
+    margin-right:131px;
+    font-family:'B Nazanin';
+   
+    
+}
+
+.clgname {
+    color: gray;
+    font-size: 25px;
+    
+}
+
+    /***************/
+/* From Uiverse.io by PriyanshuGupta28 */
+.input-container {
+    position: relative;
+    margin: 20px;
+    width:200px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    color: #333;
+    width: 200px;
+    outline: none;
+}
+.input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f1f1f1;
+    color: #333;
+    width: 200px;
+    outline: none;
+}
+.underline {
+    position: absolute;
+    display:inline;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    transition: width 0.3s;
+}
+
+.input[type="text"]:focus + .underline {
+    width: 100%;
+}
+.input[type="password"]:focus + .underline {
+    width: 100%;
+}
+@keyframes floating-label {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-25px);
+        opacity: 0;
+    }
+}
+
+.input[type="text"]:placeholder-shown + label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #777;
+    pointer-events: none;
+    transition: transform 0.3s, font-size 0.3s, color 0.3s;
+}
+.input[type="password"]:placeholder-shown + label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #777;
+    pointer-events: none;
+    transition: transform 0.3s, font-size 0.3s, color 0.3s;
+}
+.input[type="text"]:focus:not(:placeholder-shown) + label {
+    transform: translateY(-25px);
+    font-size: 12px;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    animation: floating-label 0.3s forwards;
+}
+.input[type="password"]:focus:not(:placeholder-shown) + label {
+    transform: translateY(-25px);
+    font-size: 12px;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    animation: floating-label 0.3s forwards;
+}
+/************/
+/* From Uiverse.io by elijahgummer */
+.loginbutton {
+    margin-top:5px;
+    font: inherit;
+    background-color: #f0f0f0;
+    border: 0;
+    color: #242424;
+    border-radius: 0.5em;
+    font-size: 1.35rem;
+    padding: 0.375em 1em;
+    font-weight: 600;
+    text-shadow: 0 0.0625em 0 #fff;
+    box-shadow: inset 0 0.0625em 0 0 #f4f4f4, 0 0.0625em 0 0 #efefef, 0 0.125em 0 0 #ececec, 0 0.25em 0 0 #e0e0e0, 0 0.3125em 0 0 #dedede, 0 0.375em 0 0 #dcdcdc, 0 0.425em 0 0 #cacaca, 0 0.425em 0.5em 0 #cecece;
+    transition: 0.15s ease;
+    cursor: pointer;
+}
+
+    .loginbutton:active {
+        *translate: 0 0.225em;
+        box-shadow: inset 0 0.03em 0 0 #f4f4f4, 0 0.03em 0 0 #efefef, 0 0.0625em 0 0 #ececec, 0 0.125em 0 0 #e0e0e0, 0 0.125em 0 0 #dedede, 0 0.2em 0 0 #dcdcdc, 0 0.225em 0 0 #cacaca, 0 0.225em 0.375em 0 #cecece;
+    }
+.forgotpasswordtext{
+
+    color:dodgerblue;
+    text-decoration:none;
+
+
+}
