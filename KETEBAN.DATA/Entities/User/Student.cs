@@ -21,7 +21,7 @@ namespace KETEBAN.DATA.Entities.User
         public int StudentLevelId { get; set; }
         public DateTime DateofRegistration { get; set; }
         public string Gender { get; set; }
-   
+        public int BooksBorrowedCount { get; set; }
 
 
 
