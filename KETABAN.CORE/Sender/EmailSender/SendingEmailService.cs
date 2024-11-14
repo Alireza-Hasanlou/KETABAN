@@ -26,7 +26,7 @@ namespace KETABAN.CORE.Sender.EmailSender
                    await client.ConnectAsync("smtp.gmail.com", 587, MailKit.Security.SecureSocketOptions.StartTls);
 
                     // Note: only needed if the SMTP server requires authentication
-                   await client.AuthenticateAsync("hasanlou969@gmail.com", "dbiz lhxl pdbd ukfu");
+                   await client.AuthenticateAsync("Emailaddress@gmail.com", "password");
 
                     await client.SendAsync(message);
                     await client.DisconnectAsync(true);
